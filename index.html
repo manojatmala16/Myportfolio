@@ -48,7 +48,7 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .nav-link:hover{color:var(--ink);background:rgba(28,25,23,0.05);}
 .nav-link.active{color:var(--charcoal);background:rgba(28,25,23,0.08);}
 .nav-cv{background:var(--charcoal);color:var(--bg)!important;border-radius:20px;margin-left:8px;}
-.nav-cv:hover{background:var(--ink2)!important;}
+.nav-cv:hover{background:var(--ink2)!important;color:var(--bg)!important;}
 
 /* REVEAL */
 .r{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
@@ -110,9 +110,9 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .panel-label{font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;}
 .panel-val{font-family:var(--font-display);font-size:20px;color:var(--charcoal);}
 .panel-detail{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.6;}
-.about-panel.sage{border-color:rgba(122,158,142,0.25);background:var(--sage-light);}
-.about-panel.dusty{border-color:rgba(139,155,180,0.25);background:var(--dusty-light);}
-.about-panel.peach{border-color:rgba(196,144,122,0.25);background:var(--peach-light);}
+.about-panel.sage-p{border-color:rgba(122,158,142,0.25);background:var(--sage-light);}
+.about-panel.dusty-p{border-color:rgba(139,155,180,0.25);background:var(--dusty-light);}
+.about-panel.peach-p{border-color:rgba(196,144,122,0.25);background:var(--peach-light);}
 
 /* SKILLS */
 #skills{padding:120px 0;background:var(--bg2);}
@@ -122,8 +122,7 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .legend-item{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;}
 .legend-dot{width:8px;height:8px;border-radius:50%;}
 
-/* PROJECTS */
-#projects{padding:120px 0;background:var(--bg);}
+/* PROJECT CARDS */
 .projects-list{display:flex;flex-direction:column;gap:12px;}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:pointer;position:relative;}
 .project-card:hover{box-shadow:0 20px 60px rgba(28,25,23,0.10);transform:translateY(-3px);}
@@ -147,6 +146,9 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .p-meta-item{background:var(--bg2);border-radius:10px;padding:12px 16px;}
 .p-meta-label{font-family:var(--font-mono);font-size:8px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;}
 .p-meta-val{font-size:12px;font-weight:600;color:var(--charcoal);}
+
+/* INTERNSHIP BADGE */
+.intern-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;color:var(--dusty);background:var(--dusty-light);border:1px solid rgba(139,155,180,0.25);padding:4px 12px;border-radius:20px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
 
 /* JOURNEY */
 #journey{padding:120px 0;background:var(--bg2);}
@@ -203,13 +205,7 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .contact-form{display:flex;flex-direction:column;gap:14px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .form-field{display:flex;flex-direction:column;gap:6px;}
-.form-field input,.form-field textarea{
-  width:100%;background:rgba(255,255,255,0.07);
-  border:1.5px solid rgba(255,255,255,0.12);border-radius:10px;
-  color:#f8f6f1;font-family:var(--font-sans);font-size:13px;
-  padding:15px 18px;outline:none;resize:none;
-  transition:border-color .3s,background .3s;
-}
+.form-field input,.form-field textarea{width:100%;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.12);border-radius:10px;color:#f8f6f1;font-family:var(--font-sans);font-size:13px;padding:15px 18px;outline:none;resize:none;transition:border-color .3s,background .3s;}
 .form-field input:focus,.form-field textarea:focus{border-color:var(--sage);background:rgba(122,158,142,0.10);}
 .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(248,246,241,0.28);font-size:12px;letter-spacing:.03em;}
 .form-field textarea{height:118px;}
@@ -217,15 +213,7 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .err-msg{font-family:var(--font-mono);font-size:9px;color:#e07070;letter-spacing:.08em;display:none;}
 .err-msg.show{display:block;}
 .form-note{font-family:var(--font-mono);font-size:9px;color:rgba(248,246,241,0.2);letter-spacing:.06em;line-height:1.55;text-align:center;}
-
-/* SEND BUTTON */
-.btn-send{
-  width:100%;padding:16px 24px;background:var(--sage);color:#fff;
-  border:none;border-radius:10px;font-family:var(--font-sans);font-size:14px;
-  font-weight:600;letter-spacing:.03em;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  transition:all .3s cubic-bezier(.16,1,.3,1);
-}
+.btn-send{width:100%;padding:16px 24px;background:var(--sage);color:#fff;border:none;border-radius:10px;font-family:var(--font-sans);font-size:14px;font-weight:600;letter-spacing:.03em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .3s cubic-bezier(.16,1,.3,1);}
 .btn-send:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 28px rgba(122,158,142,0.4);background:#6a8e7e;}
 .btn-send:disabled{opacity:.65;cursor:not-allowed;transform:none!important;}
 .btn-send svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
@@ -235,17 +223,7 @@ body.h-proj #cur-ring{width:72px;height:72px;border-color:var(--peach);border-ra
 .btn-send.loading .btn-icon{display:none;}
 
 /* TOAST */
-#toast{
-  position:fixed;bottom:28px;right:28px;z-index:999999;
-  display:flex;align-items:flex-start;gap:12px;
-  padding:18px 22px;border-radius:14px;
-  font-family:var(--font-sans);font-size:13px;
-  max-width:360px;min-width:260px;
-  box-shadow:0 12px 48px rgba(0,0,0,0.22);
-  opacity:0;transform:translateY(24px) scale(0.96);
-  transition:all .4s cubic-bezier(.16,1,.3,1);
-  pointer-events:none;
-}
+#toast{position:fixed;bottom:28px;right:28px;z-index:999999;display:flex;align-items:flex-start;gap:12px;padding:18px 22px;border-radius:14px;font-family:var(--font-sans);font-size:13px;max-width:360px;min-width:260px;box-shadow:0 12px 48px rgba(0,0,0,0.22);opacity:0;transform:translateY(24px) scale(0.96);transition:all .4s cubic-bezier(.16,1,.3,1);pointer-events:none;}
 #toast.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
 #toast.success{background:#162820;border:1px solid rgba(122,158,142,0.35);color:#b0d9c5;}
 #toast.error{background:#281616;border:1px solid rgba(220,100,100,0.35);color:#e8b0b0;}
@@ -294,13 +272,9 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
 <div id="cur-ring"></div>
 <div id="sp"></div>
 
-<!-- TOAST -->
 <div id="toast">
   <div class="t-ico" id="t-ico"></div>
-  <div class="t-body">
-    <div class="t-title" id="t-title"></div>
-    <div class="t-sub"   id="t-sub"></div>
-  </div>
+  <div class="t-body"><div class="t-title" id="t-title"></div><div class="t-sub" id="t-sub"></div></div>
   <div class="t-x" onclick="hideToast()">×</div>
 </div>
 
@@ -312,10 +286,11 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
     <a class="nav-link" href="#about">About</a>
     <a class="nav-link" href="#skills">Skills</a>
     <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#internship">Internship</a>
     <a class="nav-link" href="#journey">Journey</a>
     <a class="nav-link" href="#certs">Certs</a>
     <a class="nav-link" href="#contact">Contact</a>
-    <a class="nav-link nav-cv" href="Manoj Kumar Atmala - Resume.pdf" download>Download CV</a>
+    <a class="nav-link nav-cv" href="Manoj_resume.pdf" download="Manoj_Kumar_Atmala_CV.pdf">Download CV</a>
   </div>
 </nav>
 
@@ -323,20 +298,24 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
 <section id="hero">
   <div class="hero-bg-shape"></div>
   <div class="hero-left">
-    <div class="hero-eyebrow r">MSc AI — ECE Paris · 2025–Present</div>
+    <div class="hero-eyebrow r">MSc AI — ECE Paris · 2025–2027</div>
     <h1 class="hero-name r d1">Manoj<br/><em>Kumar</em><br/>Atmala</h1>
-    <p class="hero-title r d2"><strong>Artificial Intelligence</strong> · Machine Learning · Software Engineering</p>
-    <p class="hero-intro r d3">Results-driven AI/ML engineer building end-to-end intelligent systems. Specializing in energy optimization, deep learning, and data-driven system design — based in Paris, France.</p>
+    <p class="hero-title r d2"><strong>Artificial Intelligence</strong> · Machine Learning · Full-Stack Engineering</p>
+    <p class="hero-intro r d3">MSc AI student at ECE Paris — curious problem-solver turning complex real-world challenges into simple, practical AI-driven solutions. Based in Paris, France.</p>
     <div class="hero-ctas r d4">
-      <a href="#projects" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>View Projects</a>
-      <a href="Manoj Kumar Atmala - Resume.pdf" download class="btn btn-secondary"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download CV</a>
+      <a href="#projects" class="btn btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>View Projects
+      </a>
+      <a href="Manoj_resume.pdf" download="Manoj_Kumar_Atmala_CV.pdf" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download CV
+      </a>
       <a href="#contact" class="btn btn-ghost">Contact Me →</a>
     </div>
     <div class="hero-stats r d5">
-      <div class="stat"><span class="stat-val">5</span><span class="stat-lbl">Projects</span></div>
+      <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Projects</span></div>
       <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Certifications</span></div>
       <div class="stat"><span class="stat-val">8.02</span><span class="stat-lbl">CGPA</span></div>
-      <div class="stat"><span class="stat-val">100+</span><span class="stat-lbl">Students Led</span></div>
+      <div class="stat"><span class="stat-val">9mo</span><span class="stat-lbl">Internship</span></div>
     </div>
   </div>
   <div class="hero-right">
@@ -345,7 +324,7 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
       <div class="tag-float tf1">TensorFlow</div>
       <div class="tag-float tf2">Deep Learning</div>
       <div class="tag-float tf3">Python</div>
-      <div class="tag-float tf4">Neural Networks</div>
+      <div class="tag-float tf4">MERN Stack</div>
     </div>
   </div>
 </section>
@@ -359,19 +338,35 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
     </div>
     <div class="about-grid">
       <div>
-        <p class="about-statement r">Building <em>scalable, sustainable AI</em> systems that solve real-world problems — particularly in energy optimization and intelligent systems.</p>
-        <p class="about-body r d1">I'm a results-driven Master's student in Artificial Intelligence at ECE Paris with hands-on experience in machine learning, deep learning, and data-driven system design. Proven ability to build end-to-end AI pipelines using Python, TensorFlow, and Scikit-learn. I hold a B.Tech in Computer Science from SRM University with a CGPA of 8.02.</p>
+        <p class="about-statement r">A <em>curious problem-solver</em> who enjoys turning complex real-world challenges into simple, practical solutions.</p>
+        <p class="about-body r d1">MSc Artificial Intelligence student at ECE Paris with a strong foundation in Computer Science and hands-on internship experience. Collaborative team player with experience leading project groups and a dedicated focus on continuous growth in the field of AI. Holds a B.Tech in Computer Science from SRM University, Chennai with a CGPA of 8.02.</p>
         <div class="about-chips r d2">
-          <span class="chip">Energy AI</span><span class="chip">Deep Learning</span><span class="chip">Neural Networks</span>
-          <span class="chip">Data Pipelines</span><span class="chip">Computer Vision</span><span class="chip">Green Computing</span>
-          <span class="chip">Full-Stack</span><span class="chip">UI/UX Design</span><span class="chip">Cloud & DevOps</span>
+          <span class="chip">Energy AI</span><span class="chip">Deep Learning</span><span class="chip">CNN</span>
+          <span class="chip">Reinforcement Learning</span><span class="chip">MERN Stack</span><span class="chip">Data Pipelines</span>
+          <span class="chip">Computer Vision</span><span class="chip">Cloud &amp; DevOps</span><span class="chip">Predictive ML</span>
         </div>
       </div>
       <div class="about-right">
-        <div class="about-panel sage r"><div class="panel-label">Current Program</div><div class="panel-val">MSc Artificial Intelligence</div><div class="panel-detail">ECE Paris, France · Sep 2025 – Present</div></div>
-        <div class="about-panel dusty r d1"><div class="panel-label">Primary Focus</div><div class="panel-val">Energy Optimization AI</div><div class="panel-detail">Intelligent systems for sustainable computing and power management</div></div>
-        <div class="about-panel r d2"><div class="panel-label">Location</div><div class="panel-val">Paris, France</div><div class="panel-detail">+33 780 213 204 · manojatmala16@gmail.com</div></div>
-        <div class="about-panel peach r d3"><div class="panel-label">Leadership</div><div class="panel-val">100+ Students Mentored</div><div class="panel-detail">Hackathon organizer · Team lead · Junior mentor</div></div>
+        <div class="about-panel sage-p r">
+          <div class="panel-label">Current Program</div>
+          <div class="panel-val">MSc Artificial Intelligence</div>
+          <div class="panel-detail">ECE Paris, France · Sep 2025 – 2027<br/>Reinforcement Learning · Probabilistic ML · Distributed Systems · Multi-LLM Architectures</div>
+        </div>
+        <div class="about-panel dusty-p r d1">
+          <div class="panel-label">Internship</div>
+          <div class="panel-val">MERN Stack Developer</div>
+          <div class="panel-detail">BrainOvision Solutions Pvt. Ltd. · Jul 2024 – Apr 2025</div>
+        </div>
+        <div class="about-panel r d2">
+          <div class="panel-label">Location</div>
+          <div class="panel-val">Paris, France</div>
+          <div class="panel-detail">+33 780 713 204 · manojatmala16@gmail.com</div>
+        </div>
+        <div class="about-panel peach-p r d3">
+          <div class="panel-label">Undergraduate</div>
+          <div class="panel-val">B.Tech Computer Science</div>
+          <div class="panel-detail">SRM University, Chennai · CGPA 8.02 / 10</div>
+        </div>
       </div>
     </div>
   </div>
@@ -386,12 +381,12 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
     </div>
     <div id="skills-canvas-wrap" class="r d1"><canvas id="sk-canvas"></canvas></div>
     <div class="skills-legend r d2">
-      <div class="legend-item"><div class="legend-dot" style="background:#7a9e8e"></div>ML & AI</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7a9e8e"></div>ML &amp; AI</div>
       <div class="legend-item"><div class="legend-dot" style="background:#8b9bb4"></div>Programming</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#c4907a"></div>Data Science</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#a89bb8"></div>Audio & Web</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#9bb48e"></div>Cloud & DevOps</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#b4a08b"></div>Design</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#c4907a"></div>Data Engineering</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a89bb8"></div>Full-Stack MERN</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9bb48e"></div>Cloud &amp; DevOps</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#b4a08b"></div>Tools</div>
     </div>
   </div>
 </section>
@@ -404,25 +399,134 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
       <p class="section-sub r d2">Click any project to explore details, technologies, and implementation approach.</p>
     </div>
     <div class="projects-list">
-      <div class="project-card r"><div class="project-accent" style="background:var(--sage)"></div>
-        <div class="project-card-header"><div class="p-idx">01</div><div class="p-info"><h3>PowerSense AI</h3><p>Energy Consumption Prediction System · Dec 2025 – Present</p></div><div class="p-tech-tags"><span class="p-ttag">Python</span><span class="p-ttag">Scikit-learn</span><span class="p-ttag">ML</span></div><div class="p-arrow">↗</div></div>
-        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid"><ul class="p-bullets"><li>Engineered ML models to predict real-time energy consumption patterns, enabling proactive energy management decisions</li><li>Built robust data preprocessing pipelines using Python and Scikit-learn, streamlining feature engineering workflows</li><li>Applied hyperparameter tuning and cross-validation to optimize model performance across multiple regression algorithms</li></ul><div class="p-meta"><div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Energy AI</div></div><div class="p-meta-item"><div class="p-meta-label">Status</div><div class="p-meta-val">Active</div></div><div class="p-meta-item"><div class="p-meta-label">Stack</div><div class="p-meta-val">Python · Scikit-learn</div></div></div></div></div></div>
+
+      <div class="project-card r">
+        <div class="project-accent" style="background:var(--sage)"></div>
+        <div class="project-card-header">
+          <div class="p-idx">01</div>
+          <div class="p-info"><h3>PowerSense AI</h3><p>Real-Time Energy Prediction · Dec 2025 – Present</p></div>
+          <div class="p-tech-tags"><span class="p-ttag">Python</span><span class="p-ttag">Scikit-learn</span><span class="p-ttag">Pandas</span></div>
+          <div class="p-arrow">↗</div>
+        </div>
+        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid">
+          <ul class="p-bullets">
+            <li>Built ML models to predict real-time energy usage patterns for smart grid optimization.</li>
+            <li>Created data pipelines using Scikit-learn and Pandas for fast and accurate feature engineering.</li>
+            <li>Used hyperparameter tuning and cross-validation to improve model accuracy.</li>
+          </ul>
+          <div class="p-meta">
+            <div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Energy AI</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Status</div><div class="p-meta-val">Active</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Stack</div><div class="p-meta-val">Python · Scikit-learn</div></div>
+          </div>
+        </div></div></div>
       </div>
-      <div class="project-card r d1"><div class="project-accent" style="background:var(--dusty)"></div>
-        <div class="project-card-header"><div class="p-idx">02</div><div class="p-info"><h3>Smart Energy Lab Management</h3><p>AI-Based Energy System for Computer Labs · Jan 2026 – Present</p></div><div class="p-tech-tags"><span class="p-ttag">ML</span><span class="p-ttag">Predictive Analytics</span><span class="p-ttag">Green Computing</span></div><div class="p-arrow">↗</div></div>
-        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid"><ul class="p-bullets"><li>Architected intelligent monitoring system to optimize power consumption across laboratory environments</li><li>Deployed predictive analytics using ML algorithms to automate energy management recommendations</li><li>Drove sustainability initiatives through data-driven optimization, aligning with green computing standards</li></ul><div class="p-meta"><div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Sustainability AI</div></div><div class="p-meta-item"><div class="p-meta-label">Status</div><div class="p-meta-val">Active</div></div><div class="p-meta-item"><div class="p-meta-label">Focus</div><div class="p-meta-val">Green Computing</div></div></div></div></div></div>
+
+      <div class="project-card r d1">
+        <div class="project-accent" style="background:var(--dusty)"></div>
+        <div class="project-card-header">
+          <div class="p-idx">02</div>
+          <div class="p-info"><h3>AI-Based Smart Energy Management System</h3><p>Intelligent Lab Power Optimization · Jan 2026 – Present</p></div>
+          <div class="p-tech-tags"><span class="p-ttag">ML</span><span class="p-ttag">Predictive Analytics</span><span class="p-ttag">Green Computing</span></div>
+          <div class="p-arrow">↗</div>
+        </div>
+        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid">
+          <ul class="p-bullets">
+            <li>Designed an AI monitoring system to reduce power usage in computer labs.</li>
+            <li>Used ML algorithms to automate energy-saving recommendations and cut manual effort.</li>
+          </ul>
+          <div class="p-meta">
+            <div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Sustainability AI</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Status</div><div class="p-meta-val">Active</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Focus</div><div class="p-meta-val">Green Computing</div></div>
+          </div>
+        </div></div></div>
       </div>
-      <div class="project-card r d2"><div class="project-accent" style="background:var(--lavender)"></div>
-        <div class="project-card-header"><div class="p-idx">03</div><div class="p-info"><h3>Music Genre Classification CNN</h3><p>Deep Learning Audio Classifier · Jan 2025 – Mar 2025</p></div><div class="p-tech-tags"><span class="p-ttag">TensorFlow</span><span class="p-ttag">CNN</span><span class="p-ttag">Librosa</span></div><div class="p-arrow">↗</div></div>
-        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid"><ul class="p-bullets"><li>Designed and trained a CNN achieving strong classification accuracy across multiple music genres using mel-spectrogram features</li><li>Leveraged Librosa for advanced audio preprocessing including feature extraction and noise reduction</li><li>Experimented with model architectures and regularization techniques to minimize overfitting</li></ul><div class="p-meta"><div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Deep Learning</div></div><div class="p-meta-item"><div class="p-meta-label">Stack</div><div class="p-meta-val">TensorFlow · Librosa</div></div><div class="p-meta-item"><div class="p-meta-label">Type</div><div class="p-meta-val">Audio Classification</div></div></div></div></div></div>
+
+      <div class="project-card r d2">
+        <div class="project-accent" style="background:var(--lavender)"></div>
+        <div class="project-card-header">
+          <div class="p-idx">03</div>
+          <div class="p-info"><h3>Retinal Disease Detection</h3><p>Deep CNN Medical Imaging Classifier</p></div>
+          <div class="p-tech-tags"><span class="p-ttag">TensorFlow</span><span class="p-ttag">CNN</span><span class="p-ttag">Computer Vision</span></div>
+          <div class="p-arrow">↗</div>
+        </div>
+        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid">
+          <ul class="p-bullets">
+            <li>Built a CNN model to detect eye diseases like Glaucoma and Diabetic Retinopathy from retinal images.</li>
+            <li>Used image preprocessing and edge detection to improve detection accuracy.</li>
+            <li>Trained on 2000+ labeled fundus images achieving high classification performance.</li>
+          </ul>
+          <div class="p-meta">
+            <div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Medical AI</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Stack</div><div class="p-meta-val">TensorFlow · CNN</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Dataset</div><div class="p-meta-val">2000+ Images</div></div>
+          </div>
+        </div></div></div>
       </div>
-      <div class="project-card r d3"><div class="project-accent" style="background:var(--peach)"></div>
-        <div class="project-card-header"><div class="p-idx">04</div><div class="p-info"><h3>Notes Hub</h3><p>Full-Stack Flask Web Application · Apr 2023 – Jun 2023</p></div><div class="p-tech-tags"><span class="p-ttag">Flask</span><span class="p-ttag">Python</span><span class="p-ttag">JavaScript</span></div><div class="p-arrow">↗</div></div>
-        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid"><ul class="p-bullets"><li>Developed a full-stack web application using Flask, featuring user authentication, role-based access control, and advanced search</li><li>Designed a responsive UI using HTML5, CSS3, and JavaScript ensuring cross-device compatibility and accessibility</li><li>Optimized database query performance, reducing load times and improving overall application responsiveness</li></ul><div class="p-meta"><div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Web Development</div></div><div class="p-meta-item"><div class="p-meta-label">Stack</div><div class="p-meta-val">Flask · JS · CSS3</div></div><div class="p-meta-item"><div class="p-meta-label">Type</div><div class="p-meta-val">Full-Stack App</div></div></div></div></div></div>
+
+      <div class="project-card r d3">
+        <div class="project-accent" style="background:var(--peach)"></div>
+        <div class="project-card-header">
+          <div class="p-idx">04</div>
+          <div class="p-info"><h3>Faulty Machine Prediction</h3><p>Industrial ML Failure Detection System</p></div>
+          <div class="p-tech-tags"><span class="p-ttag">Naive Bayes</span><span class="p-ttag">SVM</span><span class="p-ttag">Decision Tree</span></div>
+          <div class="p-arrow">↗</div>
+        </div>
+        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid">
+          <ul class="p-bullets">
+            <li>Compared ML models (Naive Bayes, SVM, Decision Tree) to predict industrial machine failures.</li>
+            <li>Preprocessed industrial time-series data and selected the best model for deployment.</li>
+            <li>Reduced downtime and improved maintenance planning through failure probability estimation.</li>
+          </ul>
+          <div class="p-meta">
+            <div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">Predictive ML</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Models</div><div class="p-meta-val">NB · SVM · DT</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Domain</div><div class="p-meta-val">Industrial IoT</div></div>
+          </div>
+        </div></div></div>
       </div>
-      <div class="project-card r d4"><div class="project-accent" style="background:#9bb48e"></div>
-        <div class="project-card-header"><div class="p-idx">05</div><div class="p-info"><h3>Mobile-First Responsive Design</h3><p>Mobile Web Design System · Dec 2024 – Jan 2025</p></div><div class="p-tech-tags"><span class="p-ttag">CSS3</span><span class="p-ttag">HTML5</span><span class="p-ttag">UI/UX</span></div><div class="p-arrow">↗</div></div>
-        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid"><ul class="p-bullets"><li>Implemented mobile-first design principles using modern CSS3 techniques ensuring seamless navigation across all screen sizes</li><li>Integrated touch-optimized UI components and adaptive layouts to enhance user experience on mobile devices</li></ul><div class="p-meta"><div class="p-meta-item"><div class="p-meta-label">Category</div><div class="p-meta-val">UI/UX</div></div><div class="p-meta-item"><div class="p-meta-label">Stack</div><div class="p-meta-val">HTML5 · CSS3</div></div><div class="p-meta-item"><div class="p-meta-label">Focus</div><div class="p-meta-val">Mobile-First</div></div></div></div></div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship" style="padding:120px 0;background:var(--bg2);">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div><div class="section-label r">04 — Industry Experience</div><h2 class="section-title r d1">Internship <em>Experience</em></h2></div>
+      <p class="section-sub r d2">Hands-on industry exposure building real-world scalable full-stack applications.</p>
+    </div>
+    <div class="projects-list">
+      <div class="project-card r">
+        <div class="project-accent" style="background:var(--dusty)"></div>
+        <div class="project-card-header">
+          <div class="p-idx">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--dusty)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <div class="p-info">
+            <div class="intern-badge">Internship · 9 Months</div>
+            <h3>MERN Stack Development Intern</h3>
+            <p>BrainOvision Solutions Pvt. Ltd. · Jul 2024 – Apr 2025</p>
+          </div>
+          <div class="p-tech-tags">
+            <span class="p-ttag">MongoDB</span><span class="p-ttag">Express.js</span><span class="p-ttag">React.js</span><span class="p-ttag">Node.js</span>
+          </div>
+          <div class="p-arrow">↗</div>
+        </div>
+        <div class="project-card-body"><div class="project-card-body-inner"><div class="p-body-grid">
+          <ul class="p-bullets">
+            <li>Built scalable web applications using MongoDB, Express.js, React.js, and Node.js.</li>
+            <li>Worked on real client projects and gained hands-on full-stack development experience.</li>
+            <li>Recognized for being a quick learner and strong team contributor.</li>
+          </ul>
+          <div class="p-meta">
+            <div class="p-meta-item"><div class="p-meta-label">Role</div><div class="p-meta-val">MERN Stack Intern</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Duration</div><div class="p-meta-val">9 Months</div></div>
+            <div class="p-meta-item"><div class="p-meta-label">Type</div><div class="p-meta-val">Full-Stack Dev</div></div>
+          </div>
+        </div></div></div>
       </div>
     </div>
   </div>
@@ -432,22 +536,52 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
 <section id="journey">
   <div class="section-wrap">
     <div class="section-header">
-      <div><div class="section-label r">04 — Journey</div><h2 class="section-title r d1">Education &amp; <em>Leadership</em></h2></div>
+      <div><div class="section-label r">05 — Journey</div><h2 class="section-title r d1">Education &amp; <em>Leadership</em></h2></div>
     </div>
     <div class="journey-grid">
       <div>
         <h3 class="journey-col-title r">Academic Path</h3>
         <div class="tl">
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Sep 2025 — Present</div><div class="tl-role">MSc Artificial Intelligence</div><div class="tl-org">ECE Paris, France</div><div class="tl-detail">Machine Learning · Deep Learning · Neural Networks · Data Science · Algorithm Design</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Aug 2020 — Aug 2024</div><div class="tl-role">B.Tech Computer Science</div><div class="tl-org">SRM University, Chennai, Tamil Nadu</div><div class="tl-detail">CGPA: 8.02 / 10 — Four years of foundational computer science and engineering training.</div></div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Sep 2025 — 2027</div>
+            <div class="tl-role">MSc Artificial Intelligence</div>
+            <div class="tl-org">ECE Paris, France</div>
+            <div class="tl-detail">Reinforcement Learning · Probabilistic ML · Distributed Systems · Multi-LLM Architectures.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Aug 2020 — Aug 2024</div>
+            <div class="tl-role">B.Tech Computer Science</div>
+            <div class="tl-org">SRM University, Chennai, India</div>
+            <div class="tl-detail">CGPA: 8.02 / 10 — Four years of foundational computer science and engineering training.</div>
+          </div>
         </div>
       </div>
       <div>
-        <h3 class="journey-col-title r d1">Leadership & Impact</h3>
+        <h3 class="journey-col-title r d1">Leadership &amp; Activities</h3>
         <div class="tl">
-          <div class="tl-item"><div class="tl-dot" style="border-color:var(--dusty)"></div><div class="tl-date">University Years</div><div class="tl-role">Hackathon Organizer</div><div class="tl-org">University Events</div><div class="tl-detail">Organized and led college-level hackathon events, fostering a competitive programming culture among 100+ students.</div></div>
-          <div class="tl-item"><div class="tl-dot" style="border-color:var(--peach)"></div><div class="tl-date">University Years</div><div class="tl-role">Creative Team Lead</div><div class="tl-org">University</div><div class="tl-detail">Directed a team of 3–4 members producing professional design materials including posters and newsletters.</div></div>
-          <div class="tl-item"><div class="tl-dot" style="border-color:var(--lavender)"></div><div class="tl-date">University Years</div><div class="tl-role">Junior Mentor</div><div class="tl-org">Peers</div><div class="tl-detail">Mentored junior students in web development and UI/UX design, accelerating their learning in core technical disciplines.</div></div>
+          <div class="tl-item">
+            <div class="tl-dot" style="border-color:var(--dusty)"></div>
+            <div class="tl-date">University Project Cycles</div>
+            <div class="tl-role">Team Lead — AI &amp; Web Projects</div>
+            <div class="tl-org">SRM University</div>
+            <div class="tl-detail">Led and coordinated a team of 3–4 members across multiple university project cycles, ensuring timely delivery of technical milestones.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="border-color:var(--peach)"></div>
+            <div class="tl-date">University Project Cycles</div>
+            <div class="tl-role">Architect &amp; Code Integration Lead</div>
+            <div class="tl-org">SRM University</div>
+            <div class="tl-detail">Managed architectural design and code integration for team-based AI and web development projects, maintaining code quality and system coherence.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="border-color:var(--lavender)"></div>
+            <div class="tl-date">University Evaluations</div>
+            <div class="tl-role">Technical Representative</div>
+            <div class="tl-org">Academic Panels</div>
+            <div class="tl-detail">Represented project teams during final evaluations and defended technical design decisions to academic panels.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -458,13 +592,33 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
 <section id="certs">
   <div class="section-wrap">
     <div class="section-header">
-      <div><div class="section-label r">05 — Credentials</div><h2 class="section-title r d1">Certified <em>Expertise</em></h2></div>
+      <div><div class="section-label r">06 — Credentials</div><h2 class="section-title r d1">Certified <em>Expertise</em></h2></div>
     </div>
     <div class="certs-grid">
-      <div class="cert-card r"><div class="cert-issuer"><div class="cert-dot" style="background:var(--sage)"></div>Google</div><div class="cert-name">AI/ML Virtual Internship</div><div class="cert-desc">AI Fundamentals, Data Handling, and Model Evaluation</div><div class="cert-num">01</div></div>
-      <div class="cert-card r d1"><div class="cert-issuer"><div class="cert-dot" style="background:var(--dusty)"></div>AWS</div><div class="cert-name">Cloud Virtual Internship</div><div class="cert-desc">AWS Services, Cloud Fundamentals, and Deployment Practices</div><div class="cert-num">02</div></div>
-      <div class="cert-card r d2"><div class="cert-issuer"><div class="cert-dot" style="background:var(--peach)"></div>Google</div><div class="cert-name">Python Crash Course</div><div class="cert-desc">Comprehensive Hands-On Python Programming Training</div><div class="cert-num">03</div></div>
-      <div class="cert-card r d3"><div class="cert-issuer"><div class="cert-dot" style="background:var(--lavender)"></div>Google Coursera</div><div class="cert-name">Fundamentals of UI/UX Design</div><div class="cert-desc">User research, wireframing, prototyping and design principles</div><div class="cert-num">04</div></div>
+      <div class="cert-card r">
+        <div class="cert-issuer"><div class="cert-dot" style="background:var(--sage)"></div>DataScientest</div>
+        <div class="cert-name">AI &amp; Generative AI (GenAI) — Level 2</div>
+        <div class="cert-desc">Advanced AI concepts, Generative models, and applied GenAI techniques.</div>
+        <div class="cert-num">01</div>
+      </div>
+      <div class="cert-card r d1">
+        <div class="cert-issuer"><div class="cert-dot" style="background:var(--dusty)"></div>DataScientest</div>
+        <div class="cert-name">Programming — Level 1 (English)</div>
+        <div class="cert-desc">Foundational programming concepts with a focus on applied problem-solving in English.</div>
+        <div class="cert-num">02</div>
+      </div>
+      <div class="cert-card r d2">
+        <div class="cert-issuer"><div class="cert-dot" style="background:var(--peach)"></div>BrainOvision Solutions</div>
+        <div class="cert-name">MERN Stack Development</div>
+        <div class="cert-desc">Full-stack development using MongoDB, Express.js, React.js, and Node.js on real client projects.</div>
+        <div class="cert-num">03</div>
+      </div>
+      <div class="cert-card r d3">
+        <div class="cert-issuer"><div class="cert-dot" style="background:var(--lavender)"></div>Coursera</div>
+        <div class="cert-name">Deep Learning &amp; AI</div>
+        <div class="cert-desc">Neural networks, deep learning architectures, and AI application development.</div>
+        <div class="cert-num">04</div>
+      </div>
     </div>
   </div>
 </section>
@@ -475,12 +629,16 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
     <div class="resume-card r">
       <div class="resume-left">
         <h2>Ready to <em style="font-family:var(--font-display);font-style:italic;color:var(--sage)">collaborate?</em></h2>
-        <p>Download my complete CV for a full overview of my education, projects, skills, and certifications. Currently open to AI/ML research positions, internships, and collaborative projects.</p>
+        <p>Download my complete CV for a full overview of my education, internship, projects, skills, and certifications. Currently open to AI/ML research positions, internships, and collaborative projects.</p>
       </div>
       <div class="resume-right">
         <div class="resume-meta">Manoj Kumar Atmala · CV 2026<br/>MSc AI · ECE Paris</div>
-        <a href="Manoj Kumar Atmala - Resume.pdf" target="_blank" class="btn btn-secondary"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View Resume</a>
-        <a href="Manoj Kumar Atmala - Resume.pdf" download="Manoj_Kumar_Atmala_CV.pdf" class="btn btn-primary"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download CV</a>
+        <a href="Manoj_resume.pdf" target="_blank" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>View Resume
+        </a>
+        <a href="Manoj_resume.pdf" download="Manoj_Kumar_Atmala_CV.pdf" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download CV
+        </a>
       </div>
     </div>
   </div>
@@ -497,11 +655,10 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
         <div class="contact-links r d2">
           <a href="mailto:manojatmala16@gmail.com" class="contact-link"><span class="cl-type">Email</span><span class="cl-val">manojatmala16@gmail.com</span><span class="cl-arr">↗</span></a>
           <a href="https://www.linkedin.com/in/manoj-kumaratmala1603" target="_blank" rel="noopener" class="contact-link"><span class="cl-type">LinkedIn</span><span class="cl-val">manoj-kumaratmala1603</span><span class="cl-arr">↗</span></a>
-          <a href="tel:+33780213204" class="contact-link"><span class="cl-type">Phone</span><span class="cl-val">+33 780 213 204</span><span class="cl-arr">↗</span></a>
-          <a href="Manoj Kumar Atmala - Resume.pdf" download class="contact-link"><span class="cl-type">CV</span><span class="cl-val">Download Resume PDF</span><span class="cl-arr">↓</span></a>
+          <a href="tel:+33780713204" class="contact-link"><span class="cl-type">Phone</span><span class="cl-val">+33 780 713 204</span><span class="cl-arr">↗</span></a>
+          <a href="Manoj_resume.pdf" download="Manoj_Kumar_Atmala_CV.pdf" class="contact-link"><span class="cl-type">CV</span><span class="cl-val">Download Resume PDF</span><span class="cl-arr">↓</span></a>
         </div>
       </div>
-
       <div class="contact-right r d2">
         <form id="contact-form" class="contact-form" novalidate>
           <div class="form-row">
@@ -540,126 +697,70 @@ footer{background:var(--dark);padding:28px 80px;border-top:1px solid rgba(255,25
 </footer>
 
 <script>
-/* ══════════════════════════════════════════
-   EMAILJS CREDENTIALS — corrected template ID
-   Public Key  : udzNigjjv4rupckWY
-   Service ID  : service_behlmed
-   Template ID : template_uy8odrr  ← 'o' not '0'
-══════════════════════════════════════════ */
+/* ══ EMAILJS ══ */
 emailjs.init({ publicKey: 'udzNigjjv4rupckWY' });
-
 const EJ_SERVICE  = 'service_behlmed';
-const EJ_TEMPLATE = 'template_uy8odrr'; // ← FIXED: 'o' not '0' after '8'
+const EJ_TEMPLATE = 'template_uy8odrr';
 
 /* ══ TOAST ══ */
 let _tt;
-function showToast(type, title, sub) {
-  const el=document.getElementById('toast');
-  clearTimeout(_tt);
-  el.className='';
-  document.getElementById('t-ico').textContent   = type==='success' ? '✓' : '✕';
-  document.getElementById('t-title').textContent = title;
-  document.getElementById('t-sub').textContent   = sub||'';
+function showToast(type,title,sub){
+  const el=document.getElementById('toast');clearTimeout(_tt);el.className='';
+  document.getElementById('t-ico').textContent=type==='success'?'✓':'✕';
+  document.getElementById('t-title').textContent=title;
+  document.getElementById('t-sub').textContent=sub||'';
   el.classList.add(type);
   requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('visible')));
-  _tt=setTimeout(hideToast, 7000);
+  _tt=setTimeout(hideToast,7000);
 }
-function hideToast(){ document.getElementById('toast').classList.remove('visible'); }
+function hideToast(){document.getElementById('toast').classList.remove('visible');}
 
 /* ══ VALIDATION ══ */
-function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-function setErr(fId, eId, show){
-  document.getElementById(fId).classList.toggle('err', show);
-  document.getElementById(eId).classList.toggle('show', show);
-}
-function clearAll(){
-  [['f-name','e-name'],['f-email','e-email'],['f-subject','e-subject'],['f-message','e-message']]
-    .forEach(([f,e])=>setErr(f,e,false));
-}
+function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+function setErr(fId,eId,show){document.getElementById(fId).classList.toggle('err',show);document.getElementById(eId).classList.toggle('show',show);}
+function clearAll(){[['f-name','e-name'],['f-email','e-email'],['f-subject','e-subject'],['f-message','e-message']].forEach(([f,e])=>setErr(f,e,false));}
 function validate(){
   const n=document.getElementById('f-name').value.trim();
   const e=document.getElementById('f-email').value.trim();
   const s=document.getElementById('f-subject').value.trim();
   const m=document.getElementById('f-message').value.trim();
-  clearAll();
-  let ok=true;
-  if(!n)          { setErr('f-name','e-name',true);       ok=false; }
-  if(!isEmail(e)) { setErr('f-email','e-email',true);     ok=false; }
-  if(!s)          { setErr('f-subject','e-subject',true); ok=false; }
-  if(!m)          { setErr('f-message','e-message',true); ok=false; }
+  clearAll();let ok=true;
+  if(!n){setErr('f-name','e-name',true);ok=false;}
+  if(!isEmail(e)){setErr('f-email','e-email',true);ok=false;}
+  if(!s){setErr('f-subject','e-subject',true);ok=false;}
+  if(!m){setErr('f-message','e-message',true);ok=false;}
   return ok;
 }
 
-/* ══════════════════════════════════════════
-   FORM SUBMIT
-   Template variables confirmed from screenshot:
-   Subject line : "Portfolio Contact: {{Subject}} - from {{from_name}}"
-   From Name    : {{name}}
-   Reply To     : {{from_email}}
-   Body         : {{name}}, {{time}}, {{message}}
-══════════════════════════════════════════ */
-document.getElementById('contact-form').addEventListener('submit', async function(e){
-  e.preventDefault();
-  if(!validate()) return;
-
-  const btn   = document.getElementById('send-btn');
-  const label = document.getElementById('btn-label');
-  btn.disabled=true;
-  btn.classList.add('loading');
-  label.textContent='Sending…';
-
-  const nameVal    = document.getElementById('f-name').value.trim();
-  const emailVal   = document.getElementById('f-email').value.trim();
-  const subjectVal = document.getElementById('f-subject').value.trim();
-  const messageVal = document.getElementById('f-message').value.trim();
-
-  /* Exact variable names matching your EmailJS template */
-  const params = {
-    name:       nameVal,      // {{name}}       → From Name field + body greeting
-    from_name:  nameVal,      // {{from_name}}  → subject line "from {{from_name}}"
-    from_email: emailVal,     // {{from_email}} → Reply To field
-    Subject:    subjectVal,   // {{Subject}}    → subject line "Portfolio Contact: {{Subject}}"
-    message:    messageVal,   // {{message}}    → body content
-    time:       new Date().toLocaleString('en-GB',{  // {{time}} → body timestamp
-                  dateStyle:'medium', timeStyle:'short'
-                }),
+/* ══ FORM SUBMIT ══ */
+document.getElementById('contact-form').addEventListener('submit',async function(e){
+  e.preventDefault();if(!validate())return;
+  const btn=document.getElementById('send-btn'),label=document.getElementById('btn-label');
+  btn.disabled=true;btn.classList.add('loading');label.textContent='Sending…';
+  const params={
+    name:document.getElementById('f-name').value.trim(),
+    from_name:document.getElementById('f-name').value.trim(),
+    from_email:document.getElementById('f-email').value.trim(),
+    Subject:document.getElementById('f-subject').value.trim(),
+    message:document.getElementById('f-message').value.trim(),
+    time:new Date().toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'}),
   };
-
-  try {
-    const res = await emailjs.send(EJ_SERVICE, EJ_TEMPLATE, params);
-    console.log('EmailJS OK:', res.status, res.text);
-    showToast(
-      'success',
-      'Message sent successfully!',
-      'Manoj will reply to ' + emailVal + ' shortly.'
-    );
-    document.getElementById('contact-form').reset();
-    clearAll();
-  } catch(err) {
-    console.error('EmailJS error:', err);
-    showToast(
-      'error',
-      'Could not send message.',
-      'Please email manojatmala16@gmail.com directly. (' + (err.text||err.message||JSON.stringify(err)) + ')'
-    );
-  } finally {
-    btn.disabled=false;
-    btn.classList.remove('loading');
-    label.textContent='Send Message';
-  }
+  try{
+    await emailjs.send(EJ_SERVICE,EJ_TEMPLATE,params);
+    showToast('success','Message sent successfully!','Manoj will reply to '+params.from_email+' shortly.');
+    document.getElementById('contact-form').reset();clearAll();
+  }catch(err){
+    showToast('error','Could not send message.','Please email manojatmala16@gmail.com directly. ('+(err.text||err.message||JSON.stringify(err))+')');
+  }finally{btn.disabled=false;btn.classList.remove('loading');label.textContent='Send Message';}
 });
-
-/* Clear error highlight on typing */
 ['f-name','f-email','f-subject','f-message'].forEach(id=>{
-  document.getElementById(id).addEventListener('input',()=>
-    document.getElementById(id).classList.remove('err')
-  );
+  document.getElementById(id).addEventListener('input',()=>document.getElementById(id).classList.remove('err'));
 });
 
 /* ══ CURSOR ══ */
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';},{passive:true});
 (function lr(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(lr);})();
 document.querySelectorAll('.btn,.nav-link,.contact-link,.cert-card,.about-panel,.btn-send').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('h-btn'));
@@ -678,10 +779,9 @@ window.addEventListener('scroll',()=>{
   const pos=window.scrollY+200;
   document.querySelectorAll('section[id]').forEach(sec=>{
     if(sec.offsetTop<=pos&&sec.offsetTop+sec.offsetHeight>pos)
-      document.querySelectorAll('.nav-link[href^="#"]').forEach(l=>
-        l.classList.toggle('active',l.getAttribute('href')==='#'+sec.id));
+      document.querySelectorAll('.nav-link[href^="#"]').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+sec.id));
   });
-});
+},{passive:true});
 
 /* ══ REVEAL ══ */
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('up');});},{threshold:.08});
@@ -689,7 +789,7 @@ document.querySelectorAll('.r').forEach(el=>ro.observe(el));
 const tlo=new IntersectionObserver(e=>{e.forEach((x,i)=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('up'),i*130);});},{threshold:.15});
 document.querySelectorAll('.tl-item').forEach(n=>tlo.observe(n));
 
-/* ══ PROJECT ACCORDION ══ */
+/* ══ ACCORDION ══ */
 document.querySelectorAll('.project-card').forEach(card=>{
   card.addEventListener('click',()=>{
     const b=card.querySelector('.project-card-body'),open=b.classList.contains('open');
@@ -703,10 +803,11 @@ document.querySelectorAll('.project-card').forEach(card=>{
   const cv=document.getElementById('ai-canvas');if(!cv)return;
   const cx=cv.getContext('2d');let W,H,N=[],M={x:-999,y:-999};
   const C=['#7a9e8e','#8b9bb4','#c4907a','#a89bb8','#9bb48e'];
+  let _rt;
   function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}
-  window.addEventListener('resize',rs);rs();
+  window.addEventListener('resize',()=>{clearTimeout(_rt);_rt=setTimeout(rs,150);});rs();
   for(let i=0;i<42;i++)N.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*3+1.5,p:Math.random()*Math.PI*2,c:C[~~(Math.random()*C.length)]});
-  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();M.x=e.clientX-r.left;M.y=e.clientY-r.top;});
+  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();M.x=e.clientX-r.left;M.y=e.clientY-r.top;},{passive:true});
   (function draw(){
     cx.clearRect(0,0,W,H);
     N.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;const dx=n.x-M.x,dy=n.y-M.y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){n.x+=dx/d*.8;n.y+=dy/d*.8;}n.p+=.018;});
@@ -720,26 +821,61 @@ document.querySelectorAll('.project-card').forEach(card=>{
 (function(){
   const cv=document.getElementById('sk-canvas');if(!cv)return;
   const cx=cv.getContext('2d');let W,H,mouse={x:-999,y:-999},hov=null;
-  const cats={ML:{color:'#7a9e8e',cx:.38,cy:.35},PROG:{color:'#8b9bb4',cx:.14,cy:.45},DATA:{color:'#c4907a',cx:.65,cy:.30},AUDIO:{color:'#a89bb8',cx:.78,cy:.62},WEB:{color:'#c4907a',cx:.50,cy:.72},CLOUD:{color:'#9bb48e',cx:.30,cy:.68},DESIGN:{color:'#b4a08b',cx:.18,cy:.70}};
-  const sk=[{n:'Python',cat:'PROG',r:34},{n:'JavaScript',cat:'PROG',r:26},{n:'C',cat:'PROG',r:20},{n:'TensorFlow',cat:'ML',r:32},{n:'Keras',cat:'ML',r:26},{n:'Scikit-learn',cat:'ML',r:30},{n:'CNN',cat:'ML',r:24},{n:'Deep Learning',cat:'ML',r:28},{n:'NLP',cat:'ML',r:22},{n:'Pandas',cat:'DATA',r:26},{n:'NumPy',cat:'DATA',r:26},{n:'Feature Eng.',cat:'DATA',r:20},{n:'Librosa',cat:'AUDIO',r:24},{n:'Mel-Spectrum',cat:'AUDIO',r:20},{n:'Flask',cat:'WEB',r:26},{n:'HTML5/CSS3',cat:'WEB',r:22},{n:'REST APIs',cat:'WEB',r:20},{n:'Figma',cat:'DESIGN',r:24},{n:'Wireframing',cat:'DESIGN',r:18},{n:'AWS',cat:'CLOUD',r:28},{n:'Google Cloud',cat:'CLOUD',r:24},{n:'Git/GitHub',cat:'CLOUD',r:22}];
+  const cats={
+    ML:    {color:'#7a9e8e',cx:.38,cy:.32},
+    PROG:  {color:'#8b9bb4',cx:.14,cy:.45},
+    DATA:  {color:'#c4907a',cx:.65,cy:.28},
+    MERN:  {color:'#a89bb8',cx:.72,cy:.62},
+    CLOUD: {color:'#9bb48e',cx:.30,cy:.70},
+    TOOLS: {color:'#b4a08b',cx:.55,cy:.75}
+  };
+  const sk=[
+    {n:'TensorFlow',cat:'ML',r:32},{n:'Keras',cat:'ML',r:26},{n:'Scikit-learn',cat:'ML',r:30},
+    {n:'CNN',cat:'ML',r:24},{n:'Deep Learning',cat:'ML',r:28},{n:'Reinforcement RL',cat:'ML',r:20},{n:'NLP',cat:'ML',r:18},
+    {n:'Python',cat:'PROG',r:34},{n:'JavaScript',cat:'PROG',r:26},{n:'C',cat:'PROG',r:20},{n:'SQL',cat:'PROG',r:22},
+    {n:'Pandas',cat:'DATA',r:26},{n:'NumPy',cat:'DATA',r:26},{n:'Matplotlib',cat:'DATA',r:20},{n:'Feature Eng.',cat:'DATA',r:18},
+    {n:'React.js',cat:'MERN',r:28},{n:'Node.js',cat:'MERN',r:26},{n:'MongoDB',cat:'MERN',r:24},{n:'Express.js',cat:'MERN',r:22},{n:'REST APIs',cat:'MERN',r:18},
+    {n:'AWS',cat:'CLOUD',r:28},{n:'Google Cloud',cat:'CLOUD',r:24},{n:'Git/GitHub',cat:'CLOUD',r:22},{n:'Docker',cat:'CLOUD',r:18},
+    {n:'VS Code',cat:'TOOLS',r:20},{n:'Flask',cat:'TOOLS',r:20},{n:'Jupyter',cat:'TOOLS',r:20},{n:'PyCharm',cat:'TOOLS',r:18}
+  ];
   let nodes=sk.map(s=>({...s,cx:0,cy:0,phase:Math.random()*Math.PI*2,init:false}));
-  function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;nodes.forEach(n=>{if(!n.init){const c=cats[n.cat];n.cx=c.cx*W+(Math.random()-.5)*80;n.cy=c.cy*H+(Math.random()-.5)*80;n.init=true;}});}
-  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+  let _rt;
+  function rs(){
+    W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+    nodes.forEach(n=>{if(!n.init){const c=cats[n.cat];n.cx=c.cx*W+(Math.random()-.5)*80;n.cy=c.cy*H+(Math.random()-.5)*80;n.init=true;}});
+  }
+  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;},{passive:true});
   cv.addEventListener('mouseleave',()=>{mouse.x=-999;mouse.y=-999;});
-  window.addEventListener('resize',rs);rs();
+  window.addEventListener('resize',()=>{clearTimeout(_rt);_rt=setTimeout(rs,150);});rs();
   let hovCat=null;
   (function draw(){
     cx.clearRect(0,0,W,H);const t=Date.now()*.001;
     hovCat=null;hov=null;
     nodes.forEach(n=>{const dx=mouse.x-n.cx,dy=mouse.y-n.cy;if(Math.sqrt(dx*dx+dy*dy)<n.r+10){hovCat=n.cat;hov=n;}});
     nodes.forEach(n=>{n.cx+=Math.sin(t*.5+n.phase)*.25;n.cy+=Math.cos(t*.4+n.phase)*.25;});
-    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){if(nodes[i].cat!==nodes[j].cat)continue;const dx=nodes[i].cx-nodes[j].cx,dy=nodes[i].cy-nodes[j].cy,d=Math.sqrt(dx*dx+dy*dy);if(d>220)continue;const b=hovCat===null?.08:(hovCat===nodes[i].cat?.45:.02);const col=cats[nodes[i].cat].color;cx.beginPath();cx.strokeStyle=col+~~(b*(1-d/220)*255).toString(16).padStart(2,'0');cx.lineWidth=.9;cx.moveTo(nodes[i].cx,nodes[i].cy);cx.lineTo(nodes[j].cx,nodes[j].cy);cx.stroke();}
-    nodes.forEach(n=>{const ia=hovCat===null||n.cat===hovCat,sc=hov===n?1.3:1,col=cats[n.cat].color;cx.save();cx.globalAlpha=ia?1:.2;cx.translate(n.cx,n.cy);if(hov===n){const g=cx.createRadialGradient(0,0,0,0,0,n.r*2.5);g.addColorStop(0,col+'30');g.addColorStop(1,col+'00');cx.beginPath();cx.arc(0,0,n.r*2.5,0,Math.PI*2);cx.fillStyle=g;cx.fill();}cx.beginPath();cx.arc(0,0,n.r*sc,0,Math.PI*2);cx.fillStyle=col+'18';cx.strokeStyle=ia?col+'99':col+'33';cx.lineWidth=1.5;cx.fill();cx.stroke();cx.fillStyle=ia?'#2c2825':'#aaa';cx.font=`${Math.min(n.r*.5+4,11)}px 'DM Sans',sans-serif`;cx.textAlign='center';cx.textBaseline='middle';cx.fillText(n.n,0,0);if(hov===n){cx.font="9px 'Space Mono',monospace";cx.fillStyle=col;cx.fillText(n.cat,0,n.r*sc+15);}cx.restore();});
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+      if(nodes[i].cat!==nodes[j].cat)continue;
+      const dx=nodes[i].cx-nodes[j].cx,dy=nodes[i].cy-nodes[j].cy,d=Math.sqrt(dx*dx+dy*dy);
+      if(d>220)continue;
+      const b=hovCat===null?.08:(hovCat===nodes[i].cat?.45:.02);
+      cx.beginPath();cx.strokeStyle=cats[nodes[i].cat].color+~~(b*(1-d/220)*255).toString(16).padStart(2,'0');
+      cx.lineWidth=.9;cx.moveTo(nodes[i].cx,nodes[i].cy);cx.lineTo(nodes[j].cx,nodes[j].cy);cx.stroke();
+    }
+    nodes.forEach(n=>{
+      const ia=hovCat===null||n.cat===hovCat,sc=hov===n?1.3:1,col=cats[n.cat].color;
+      cx.save();cx.globalAlpha=ia?1:.2;cx.translate(n.cx,n.cy);
+      if(hov===n){const g=cx.createRadialGradient(0,0,0,0,0,n.r*2.5);g.addColorStop(0,col+'30');g.addColorStop(1,col+'00');cx.beginPath();cx.arc(0,0,n.r*2.5,0,Math.PI*2);cx.fillStyle=g;cx.fill();}
+      cx.beginPath();cx.arc(0,0,n.r*sc,0,Math.PI*2);
+      cx.fillStyle=col+'18';cx.strokeStyle=ia?col+'99':col+'33';cx.lineWidth=1.5;cx.fill();cx.stroke();
+      cx.fillStyle=ia?'#2c2825':'#aaa';
+      cx.font=`${Math.min(n.r*.5+4,11)}px 'DM Sans',sans-serif`;
+      cx.textAlign='center';cx.textBaseline='middle';cx.fillText(n.n,0,0);
+      if(hov===n){cx.font="9px 'Space Mono',monospace";cx.fillStyle=col;cx.fillText(n.cat,0,n.r*sc+15);}
+      cx.restore();
+    });
     requestAnimationFrame(draw);
   })();
 })();
 </script>
 </body>
 </html>
-Command palette
-Search for a command to run…
